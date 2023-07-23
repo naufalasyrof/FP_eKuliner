@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\TentangKamiController;
@@ -23,3 +24,4 @@ Route::get('/', function () {
 Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
+Route::get('pesanan', [CartController::class, 'index'])->name('pesanan');
