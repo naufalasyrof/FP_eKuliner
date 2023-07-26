@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\AdminController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BerandaController;
@@ -26,5 +27,10 @@ Route::get('/', function () {
 Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
+<<<<<<< HEAD
 Route::get('profile', ProfileController::class)->name('profile');
 Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
+=======
+
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+>>>>>>> 3dfe2626bb1b64e26577689bd8caa57c3b66d26f
