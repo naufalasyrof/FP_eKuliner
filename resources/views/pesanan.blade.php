@@ -6,9 +6,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-4">
-
                             <div class="row">
-
                                 <div class="col-lg-7">
                                     <div class="d-flex justify-content-start">
                                         <a href=""><i class="bi bi-arrow-left-circle me-3 fs-4 text-black"></i></a>
@@ -94,6 +92,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container my-5 py-5">
         </div>
     </section>
 @endsection
