@@ -62,16 +62,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($ as $)
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>@include('layouts.actions')</td>
-                                </tr>
-                            @endforeach --}}
+
                         </tbody>
                     </table>
                 </div>
