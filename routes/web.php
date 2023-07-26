@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangKamiController;
 
 /*
@@ -23,3 +25,5 @@ Route::get('/', function () {
 Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
+Route::get('profile', ProfileController::class)->name('profile');
+Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
