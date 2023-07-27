@@ -25,8 +25,8 @@ Route::get('/', function () {
 });
 
 Route::get('beranda', BerandaController::class)->name('beranda');
-Route::get('katalog', KatalogController::class)->name('katalog');
+Route::get('katalog', [KatalogController::class,'index'])->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
-Route::get('profile', ProfileController::class)->name('profile');
-Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
+Route::resource('profile', ProfileController::class);
+Route::resource('pesanan', PesananController::class);
 Route::get('admin', [AdminController::class, 'index'])->name('admin');

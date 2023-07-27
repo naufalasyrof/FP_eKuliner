@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggan', function (Blueprint $table) {
+        // Schema::create('pelanggan', function (Blueprint $table) {
 
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**

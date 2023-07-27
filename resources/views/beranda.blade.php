@@ -8,7 +8,7 @@
             <div class="py-4 col-6">
                 <h1 class="mt-4 pb-3"><b>Selamat Datang<br>di eKuliner</b></h1>
                 <p>Layanan Pemesanan makanan bebasis website online dari eKuliner untuk Anda para pelanggan setia kami. </p>
-                <button type="button" class="btn btn-warning px-4 py-2"><b>Lihat menu</b></button>
+                <a type="button" class="btn btn-warning px-4 py-2" href='{{route('katalog')}}'><b>Lihat menu</b></a>
             </div>
         </div>
     </div>

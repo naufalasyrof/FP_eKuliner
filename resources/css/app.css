@@ -9,3 +9,10 @@
     transition: transform .2s;
     cursor: pointer;
 }
+body {
+    text-decoration: none;
+}
+.btn-katalog {
+    border: 0 !important;
+    border-color: white;
+}
