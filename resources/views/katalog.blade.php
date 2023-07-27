@@ -8,7 +8,7 @@
             </header><!-- sect-heading -->
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/chickenbaconpasta.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/classiccheesepizza.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/lasagna.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/chickenbaconpasta.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/classiccheesepizza.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/lasagna.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/chickenbaconpasta.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/classiccheesepizza.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/lasagna.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -104,7 +104,7 @@
             </header><!-- sect-heading -->
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/chickenbaconpasta.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/classiccheesepizza.png') }}"
                             class="card-img-top" alt="...">
                         <div class="card-body">
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div class="card card-h">
                         <img src="{{ Vite::asset('resources/images/katalog/lasagna.png') }}" class="card-img-top"
                             alt="...">
                         <div class="card-body">
