@@ -21,7 +21,32 @@
             </ul>
             <hr class="d-md-none text-white-50">
             <div class="dropdown my-2 ms-md-auto">
-                <a class="btn btn-warning fw-medium" href="#" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
+                @if (Route::has('login'))
+                    @auth
+                        <div class="dropdown my-2 ms-md-auto">
+                            <button type="button" class="btn btn-warning mx-2"><i class="bi bi-cart3"></i></button>
+                            <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href=""><i class="bi-person-circle me-2"></i>My
+                                        Profile</a></li>
+                                <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();"><i
+                                        class="bi bi-box-arrow-in-left me-2"></i>
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </div>
+                    @else
+                        <a class="btn btn-warning fw-medium" href="{{ route('login') }}" role="button"><i
+                                class="bi bi-box-arrow-in-right me-2"></i>Login</a>
+                        <a class="btn btn-warning fw-medium" href="{{ route('register') }}" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Register</a>
+                    @endauth
+                @endif
             </div>
         </div>
     </div>

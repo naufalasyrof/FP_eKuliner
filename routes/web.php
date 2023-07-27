@@ -16,7 +16,7 @@ use App\Http\Controllers\TentangKamiController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('beranda');
 });
@@ -25,3 +25,7 @@ Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
 Route::get('pesanan', [CartController::class, 'index'])->name('pesanan');
+
+
+
+
