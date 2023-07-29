@@ -55,6 +55,18 @@ Route::prefix('admin')->group(function () {
     Route::get('dashboard/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
     Route::put('dashboard/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
     Route::delete('dashboard/produk/{produk}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::get('/produk/{filename}', function ($filename) {
+        $filePath = 'files/' . $filename;
+
+        if (Storage::disk('public')->exists($filePath)) {
+            $file = Storage::disk('public')->get($filePath);
+            $mime = Storage::disk('public')->mimeType($filePath);
+
+            return Response::make($file, 200, ['Content-Type' => $mime]);
+        } else {
+            abort(404);
+        }
+    })->name('produk.image');
 
     //rute orderan
     Route::resource('pesanan', OrderController::class);

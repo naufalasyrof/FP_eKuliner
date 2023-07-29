@@ -196,12 +196,10 @@ class ProdukController extends Controller
         // Redirect back to the product listing page with a success message
         return redirect()->route('admin.dashboard.produk')->with('success', 'Product deleted successfully.');
     }
-
-    // ...
+    // public function getDecryptedGambarAttribute()
+    // {
+    //     return decrypt( $this->attributes['picture']);
+    // }
+    // // ...
 
 }
-
-
-
-
-

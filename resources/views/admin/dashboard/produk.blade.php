@@ -94,7 +94,11 @@
                                         <td>{{ $produks->kategori }}</td>
                                         <td>{{ $produks->harga }}</td>
                                         <td>{{ $produks->stok }}</td>
-                                        <td>{{ $produks->gambar }}</td>
+                                        {{-- <td><img src="{{ asset('storage/app/public/files/' . $produks->gambar) }}" alt="{{ $produks->nama_produk }}" style="max-width: 100px;"></td> --}}
+                                        <td>
+                                            <img src="{{ Storage::url('public/files/') }}"class="card-img-top" alt="{{ $produks->nama_produk }}">
+                                        </td>
+
                                         <td>
                                             <a href="{{ route('produk.show', $produks->id) }}" class="btn btn-outline-dark btn-sm me2 bi-person-lines-fill" title="View" data-toggle="tooltip"></a>
                                             <a href="{{ route('produk.edit', $produks->id) }}" class="btn btn-outline-dark btn-sm me2 bi-pencil-square " title="Edit" data-toggle="tooltip"></a>
