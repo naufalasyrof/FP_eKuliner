@@ -1,5 +1,8 @@
 <?php
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
+
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProdukController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -27,6 +30,6 @@ Route::get('/', function () {
 Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', [KatalogController::class,'index'])->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
-Route::resource('profile', ProfileController::class);
-Route::resource('pesanan', PesananController::class);
+Route::get('profile', ProfileController::class)->name('profile');
+Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
