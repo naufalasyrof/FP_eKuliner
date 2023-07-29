@@ -46,7 +46,8 @@ class PesananController extends Controller
             'users_id' => $request->id_user,
             'produk_id' => $request->id_produk,
             'harga' => $request->harga,
-            'chart' => 1
+            'chart' => 1,
+            'tanggal' => $request->tanggal
         ]);
         return redirect()->route('pesanan.index');
 
@@ -73,10 +74,13 @@ class PesananController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $reductionAmount = 1;
         DB::table('pesanans')
             ->where('users_id', $id)
             ->update(['chart' => 0 ]);
-            return redirect()->route('pesanan.index');
+            
+
+        return redirect()->route('pesanan.index');
     }
 
     /**

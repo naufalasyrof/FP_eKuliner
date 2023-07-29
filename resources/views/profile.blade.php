@@ -31,7 +31,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 d-grid">
-                                    <a href="route" class="btn btn-outline-dark btn-lg mt-3"><i
+                                    <a href="{{route('beranda')}}" class="btn btn-outline-dark btn-lg mt-3"><i
                                             class="bi-arrow-left-circle me-2"></i> Back</a>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                             <tr>
                                 <th>{{$pesanan->id}}.</th>
                                 <th>{{$pesanan->nama_produk}}</th>
-                                <th>{{$pesanan->id}}</th>
+                                <th>{{$pesanan->tanggal}}</th>
                                 <th>@include('layouts.actions')</th>
                             </tr>
                             @endforeach
