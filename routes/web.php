@@ -28,10 +28,23 @@ Route::get('/', function () {
 Route::get('admin', [DashboardController::class, 'index'])->middleware('checkRole:1');
 Route::get('user', [BerandaController::class, 'index'])->middleware(['checkRole:0']);
 Route::get('beranda', BerandaController::class)->name('beranda');
-Route::get('katalog', [KatalogController::class,'index'])->name('katalog');
+Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
+
 Route::resource('profile', ProfileController::class);
 Route::resource('pesanan', PesananController::class);
+
+Route::get('profile', ProfileController::class)->name('profile');
+Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
+
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+
+Route::group(['namespace' => 'admin', 'prefix' => 'admin'],
+    function() {
+        //dashboard
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    }
+);
 
 Route::prefix('admin')->group(function () {
     //dashboard
@@ -60,9 +73,13 @@ Route::prefix('admin')->group(function () {
     })->name('produk.image');
 
     //rute orderan
+    Route::resource('pesanan', OrderController::class);
+    Route::get('produk/getData', [ProdukController::class, 'getData'])->name('produk.getData');
+
 
 
     Route::get('download-file/produk{id}', [ProdukController::class, 'downloadFile'])->name('produk.downloadFile');
 
 
 });
+
