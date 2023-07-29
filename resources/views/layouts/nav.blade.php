@@ -28,7 +28,7 @@
                             <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{route('profile')}}"><i class="bi-person-circle me-2"></i>My Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('profile.index')}}"><i class="bi-person-circle me-2"></i>My Profile</a></li>
                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();"><i

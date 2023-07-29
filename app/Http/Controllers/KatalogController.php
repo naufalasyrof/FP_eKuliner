@@ -13,6 +13,7 @@ class KatalogController extends Controller
     public function index()
     {
         $pageTitle = 'Katalog';
+
         $produks = DB::table('produks')->get();
         return view('katalog', [
             'pageTitle' => $pageTitle,

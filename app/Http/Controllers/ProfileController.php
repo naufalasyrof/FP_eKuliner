@@ -54,7 +54,6 @@ class ProfileController extends Controller
     public function show(string $id)
     {
         $pageTitle = 'Profile';
-        
         $users = DB::table('users')->where('id', $id)->get();
         $pesanans = DB::table('pesanans')
         ->select('pesanans.*', 'produks.nama_produk')
