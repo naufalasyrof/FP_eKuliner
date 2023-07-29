@@ -16,4 +16,4 @@
         </ul>
     </footer>
 </div>
-<div class="container-fluid bg-warning py-2">
+<div class="container-fixed bg-warning py-2">

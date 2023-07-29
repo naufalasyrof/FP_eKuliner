@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PesananController extends Controller
 {
@@ -11,8 +12,21 @@ class PesananController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Pesanan';
-        return view('pesanan', compact('pageTitle'));
+        $pageTitle = 'pesanan';
+        $id = auth()->id();
+        $pesanans = DB::table('pesanans')
+        ->select('pesanans.*', 'produks.nama_produk')
+        ->join('produks', 'produks.id', '=', 'pesanans.produk_id')
+        ->where('pesanans.users_id', $id)
+        ->where('chart', 1)
+        ->get();
+        $totalHarga = $pesanans->sum('harga');
+
+        return view('pesanan', [
+            'pageTitle' => $pageTitle,
+            'pesanans' => $pesanans,
+            'totalHarga' => $totalHarga
+        ]);
     }
 
     /**
@@ -28,7 +42,14 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('pesanans')->insert([
+            'users_id' => $request->id_user,
+            'produk_id' => $request->id_produk,
+            'harga' => $request->harga,
+            'chart' => 1
+        ]);
+        return redirect()->route('pesanan.index');
+
     }
 
     /**
@@ -52,7 +73,10 @@ class PesananController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('pesanans')
+            ->where('users_id', $id)
+            ->update(['chart' => 0 ]);
+            return redirect()->route('pesanan.index');
     }
 
     /**
@@ -60,6 +84,10 @@ class PesananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('pesanans')
+            ->where('id', $id)
+            ->delete();
+        return redirect()->route('pesanan.index');
     }
+
 }

@@ -16,24 +16,22 @@
                                 <h4>Nama User</h4>
                             </div>
                             <hr>
+                            @foreach($users as $user)
                             <div class="row">
                                 <div class="col-md-12 mb-3">
-                                    <label for="email" class="form-label">Username</label>
+                                    <label for="email" class="form-label">{{$user->name}}</label>
                                     {{-- <h5>{{ $employee->email }}</h5> --}}
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label for="age" class="form-label">Email</label>
+                                    <label for="age" class="form-label">{{$user->email}}</label>
                                     {{-- <h5>{{ $employee->age }}</h5> --}}
                                 </div>
-                                <div class="col-md-12 mb-3">
-                                    <label for="age" class="form-label">No. Telp</label>
-                                    {{-- <h5>{{ $employee->position_name }}</h5> --}}
-                                </div>
                             </div>
+                            @endforeach
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 d-grid">
-                                    <a href="" class="btn btn-outline-dark btn-lg mt-3"><i
+                                    <a href="route" class="btn btn-outline-dark btn-lg mt-3"><i
                                             class="bi-arrow-left-circle me-2"></i> Back</a>
                                 </div>
                             </div>
@@ -62,7 +60,14 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach($pesanans as $pesanan)
+                            <tr>
+                                <th>{{$pesanan->id}}.</th>
+                                <th>{{$pesanan->nama_produk}}</th>
+                                <th>{{$pesanan->id}}</th>
+                                <th>@include('layouts.actions')</th>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

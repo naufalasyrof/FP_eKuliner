@@ -24,12 +24,11 @@
                 @if (Route::has('login'))
                     @auth
                         <div class="dropdown my-2 ms-md-auto">
-                            <button type="button" class="btn btn-warning mx-2"><i class="bi bi-cart3"></i></button>
+                            <a class="btn btn-warning mx-2" href="{{ route('pesanan.index') }}"><i class="bi bi-cart3"></i></a>
                             <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href=""><i class="bi-person-circle me-2"></i>My
-                                        Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('profile')}}"><i class="bi-person-circle me-2"></i>My Profile</a></li>
                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();"><i

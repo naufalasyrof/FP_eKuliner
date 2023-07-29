@@ -28,51 +28,8 @@ Route::get('/', function () {
 });
 
 Route::get('beranda', BerandaController::class)->name('beranda');
-Route::get('katalog', KatalogController::class)->name('katalog');
+Route::get('katalog', [KatalogController::class,'index'])->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
 Route::get('profile', ProfileController::class)->name('profile');
 Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
-
-// Route::get('admin', [AdminController::class, 'index'])->name('admin');
-
-// Route::group(['namespace' => 'admin', 'prefix' => 'admin'],
-//     function() {
-//         //dashboard
-//         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-//     }
-// );
-
-Route::prefix('admin')->group(function () {
-    //dashboard
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-    //produk katalog
-    Route::resource('produk', ProdukController::class);
-    // Rute untuk menampilkan daftar produk
-    Route::get('dashboard/produk', [ProdukController::class, 'index'])->name('admin.dashboard.produk');
-    // Rute untuk menampilkan detail produk
-    Route::get('dashboard/produk/{id}', [ProdukController::class, 'show'])->name('admin.dashboard.show');
-    Route::get('dashboard/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
-    Route::put('dashboard/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
-    Route::delete('dashboard/produk/{produk}', [ProdukController::class, 'destroy'])->name('produk.destroy');
-    Route::get('/produk/{filename}', function ($filename) {
-        $filePath = 'files/' . $filename;
-
-        if (Storage::disk('public')->exists($filePath)) {
-            $file = Storage::disk('public')->get($filePath);
-            $mime = Storage::disk('public')->mimeType($filePath);
-
-            return Response::make($file, 200, ['Content-Type' => $mime]);
-        } else {
-            abort(404);
-        }
-    })->name('produk.image');
-
-    //rute orderan
-    Route::resource('pesanan', OrderController::class);
-
-
-    Route::get('download-file/produk{id}', [ProdukController::class, 'downloadFile'])->name('produk.downloadFile');
-
-
-});
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
