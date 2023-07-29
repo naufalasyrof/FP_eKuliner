@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProdukController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\PesananController;
@@ -26,10 +25,15 @@ Auth::routes();
 Route::get('/', function () {
     return view('beranda');
 });
-
+Route::get('admin', [DashboardController::class, 'index'])->middleware('checkRole:1');
+Route::get('user', [BerandaController::class, 'index'])->middleware(['checkRole:0']);
 Route::get('beranda', BerandaController::class)->name('beranda');
 Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
+
+Route::resource('profile', ProfileController::class);
+Route::resource('pesanan', PesananController::class);
+
 Route::get('profile', ProfileController::class)->name('profile');
 Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
 
@@ -73,7 +77,9 @@ Route::prefix('admin')->group(function () {
     Route::get('produk/getData', [ProdukController::class, 'getData'])->name('produk.getData');
 
 
+
     Route::get('download-file/produk{id}', [ProdukController::class, 'downloadFile'])->name('produk.downloadFile');
 
 
 });
+

@@ -8,24 +8,26 @@
                 <h4>Detail Pesanan</h4>
             </div>
             <hr>
+            @foreach($pesanans as $pesanans)
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="firstName" class="form-label">No. Pesanan</label>
-                    <h5>{{$profile->id}}</h5>
+                    <h5>{{$pesanans->id}}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="lastName" class="form-label">Nama Produk</label>
-                    <h5>{{$profile->nama_produk}}</h5>
+                    <h5>{{$pesanans->nama_produk}}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="email" class="form-label">Tanggal Pemesanan</label>
-                    <h5>{{$profile->id}}</h5>
+                    <h5>{{$pesanans->tanggal}}</h5>
                 </div>
             </div>
+            @endforeach
             <hr>
             <div class="row">
                 <div class="col-md-12 d-grid">
-                    <a href="" class="btn btn-outline-dark btn-lg mt-3"><i
+                    <a href="{{route('profile.index')}}" class="btn btn-outline-dark btn-lg mt-3"><i
                             class="bi-arrow-left-circle
     me-2"></i> Back</a>
                 </div>

@@ -39,7 +39,7 @@
                         @endforeach
                     @else
                         @foreach ($produks as $produk)
-                            @if ($produk->kategori == 'Makanan' AND $produks->stok <= 1)
+                            @if ($produk->kategori == 'Makanan' AND $produk->stok <= 1)
                                 <div class="col">
                                     <a href="{{ route('login') }}" class="btn text-start btn-katalog">
                                         <div class="card card-h">

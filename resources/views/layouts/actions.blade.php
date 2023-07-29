@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <a href="{{ route('profile.show',['profile' => $pesanan->users_id])}}" class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-eye"></i></a>
+    <a href="{{ route('profile.show',['profile' => $pesanan->id])}}" class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-eye"></i></a>
     </div>
 </div>
 {{-- <div class="d-flex">

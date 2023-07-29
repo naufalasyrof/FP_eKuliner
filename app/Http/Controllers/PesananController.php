@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PesananController extends Controller
 {
@@ -15,11 +16,11 @@ class PesananController extends Controller
         $pageTitle = 'pesanan';
         $id = auth()->id();
         $pesanans = DB::table('pesanans')
-        ->select('pesanans.*', 'produks.nama_produk')
-        ->join('produks', 'produks.id', '=', 'pesanans.produk_id')
-        ->where('pesanans.users_id', $id)
-        ->where('chart', 1)
-        ->get();
+            ->select('pesanans.*', 'produks.nama_produk')
+            ->join('produks', 'produks.id', '=', 'pesanans.produk_id')
+            ->where('pesanans.users_id', $id)
+            ->where('chart', 1)
+            ->get();
         $totalHarga = $pesanans->sum('harga');
 
         return view('pesanan', [
@@ -49,6 +50,7 @@ class PesananController extends Controller
             'chart' => 1,
             'tanggal' => $request->tanggal
         ]);
+        Alert::success('Added Successfully');
         return redirect()->route('pesanan.index');
 
     }
@@ -77,9 +79,8 @@ class PesananController extends Controller
         $reductionAmount = 1;
         DB::table('pesanans')
             ->where('users_id', $id)
-            ->update(['chart' => 0 ]);
-            
-
+            ->update(['chart' => 0]);
+            Alert::success('Thank You!');
         return redirect()->route('pesanan.index');
     }
 
@@ -88,9 +89,11 @@ class PesananController extends Controller
      */
     public function destroy(string $id)
     {
+
         DB::table('pesanans')
             ->where('id', $id)
             ->delete();
+        Alert::success('Deleted  Successfully');
         return redirect()->route('pesanan.index');
     }
 

@@ -54,16 +54,14 @@ class ProfileController extends Controller
     public function show(string $id)
     {
         $pageTitle = 'Profile';
-        $users = DB::table('users')->where('id', $id)->get();
         $pesanans = DB::table('pesanans')
         ->select('pesanans.*', 'produks.nama_produk')
         ->join('produks', 'produks.id', '=', 'pesanans.produk_id')
-        ->where('pesanans.users_id', $id)
+        ->where('pesanans.id', $id)
         ->where('chart', 0)
         ->get();
         return view('show', [
             'pageTitle' => $pageTitle,
-            'users' => $users,
             'pesanans' => $pesanans]);
     }
 
