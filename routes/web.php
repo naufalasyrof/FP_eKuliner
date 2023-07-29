@@ -1,5 +1,8 @@
 <?php
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
+
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProdukController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -29,4 +32,35 @@ Route::get('katalog', KatalogController::class)->name('katalog');
 Route::get('tentangkami', TentangKamiController::class)->name('tentangkami');
 Route::get('profile', ProfileController::class)->name('profile');
 Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
-Route::get('admin', [AdminController::class, 'index'])->name('admin');
+
+// Route::get('admin', [AdminController::class, 'index'])->name('admin');
+
+// Route::group(['namespace' => 'admin', 'prefix' => 'admin'],
+//     function() {
+//         //dashboard
+//         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//     }
+// );
+
+Route::prefix('admin')->group(function () {
+    //dashboard
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    //produk katalog
+    Route::resource('produk', ProdukController::class);
+    // Rute untuk menampilkan daftar produk
+    Route::get('dashboard/produk', [ProdukController::class, 'index'])->name('admin.dashboard.produk');
+    // Rute untuk menampilkan detail produk
+    Route::get('dashboard/produk/{id}', [ProdukController::class, 'show'])->name('admin.dashboard.show');
+    Route::get('dashboard/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
+    Route::put('dashboard/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
+    Route::delete('dashboard/produk/{produk}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+
+    //rute orderan
+    Route::resource('pesanan', OrderController::class);
+
+
+    Route::get('download-file/produk{id}', [ProdukController::class, 'downloadFile'])->name('produk.downloadFile');
+
+
+});
