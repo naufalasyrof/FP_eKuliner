@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered">
+                        <table class="table table-striped table-hover table-bordered id='produk-table">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -92,8 +92,8 @@
                                         <td>{{ $produks->id }}</td>
                                         <td>{{ $produks->nama_produk }}</td>
                                         <td>{{ $produks->kategori }}</td>
-                                        <td>{{ $produks->harga }}</td>
                                         <td>{{ $produks->stok }}</td>
+                                        <td>{{ $produks->harga }}</td>
                                         {{-- <td><img src="{{ asset('storage/app/public/files/' . $produks->gambar) }}" alt="{{ $produks->nama_produk }}" style="max-width: 100px;"></td> --}}
                                         <td>
                                             <img src="{{ Storage::url('public/files/') }}"class="card-img-top" alt="{{ $produks->nama_produk }}">
@@ -118,5 +118,10 @@
                             </tbody>
                         </table>
                         </body>
+                        <script>
+                            $(document).ready(function() {
+                                $('#produk-table').DataTable();
+                            });
+                        </script>
 </html>
 

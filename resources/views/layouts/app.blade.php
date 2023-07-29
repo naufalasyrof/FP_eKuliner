@@ -12,9 +12,11 @@
 
 <body>
     @include('layouts.nav')
-    @yield('content')
+    @yield('content')\
+    @include('sweetalert::alert')
     @vite('resources/js/app.js')
     @include('layouts.footer')
+    @stack('scripts')
 </body>
 
 </html>

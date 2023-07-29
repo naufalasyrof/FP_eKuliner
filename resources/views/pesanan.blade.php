@@ -34,7 +34,7 @@
                                                             method="POST">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit" class="btn btn-warning mx-2"><i
+                                                            <button type="submit" class="btn btn-warning mx-2 btn-delete" data-name="{{ $pesanan->nama_produk.' '.$pesanan->harga }}"><i
                                                                     class="bi bi-trash3"></i></button>
                                                         </form>
                                                     </div>

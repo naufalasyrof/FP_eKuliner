@@ -19,6 +19,7 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::all();
+        
 
         return view('admin.dashboard.produk', compact('produk'));
     }
