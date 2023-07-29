@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <div class="container-sm my-5">
     <div class="row justify-content-center">
         <div class="p-5 bg-light rounded-3 col-xl-4 border">
@@ -9,15 +11,15 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="firstName" class="form-label">No. Pesanan</label>
-                    <h5></h5>
+                    <h5>{{$profile->id}}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label for="lastName" class="form-label">Tanggal Pesanan</label>
-                    <h5></h5>
+                    <label for="lastName" class="form-label">Nama Produk</label>
+                    <h5>{{$profile->nama_produk}}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label for="email" class="form-label">List Pesanan</label>
-                    <h5></h5>
+                    <label for="email" class="form-label">Tanggal Pemesanan</label>
+                    <h5>{{$profile->id}}</h5>
                 </div>
             </div>
             <hr>
@@ -32,3 +34,4 @@
     </div>
 </div>
 @vite('resources/js/app.js')
+@endsection

@@ -59,7 +59,7 @@
                                                 </div>
                                             </div>
                                             @foreach ($pesanans as $pesanans)
-                                            <form action="{{ route('pesanan.update',['pesanan' => $pesanans->users_id]) }}"method="POST">
+                                            <form action="{{ route('pesanan.update',['pesanan' => $pesanans->users_id])}}"method="POST">
                                                 @csrf
                                                 @method('put')
                                                 <input class="form-control" type="text" name="id_user" id="id_user"

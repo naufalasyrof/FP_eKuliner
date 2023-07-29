@@ -16,17 +16,17 @@ class produkseeder extends Seeder
         DB::table('produks')->insert(
             [
                 [
-                    'nama_produk' => ' Air',
+                    'nama_produk' => 'Es Degan',
                     'kategori' => 'Minuman',
                     'stok' => '3',
-                    'harga' => 1000,
+                    'harga' => 5000,
                     
                 ],
                 [
-                    'nama_produk' => ' Nasi',
+                    'nama_produk' => 'Nasi Ayam',
                     'kategori' => 'Makanan',
                     'stok' => '3',
-                    'harga' => 1000,
+                    'harga' => 10000,
                 ]
             ]
         );
