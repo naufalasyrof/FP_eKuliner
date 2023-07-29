@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\DataTables;
 
 
 class ProdukController extends Controller
@@ -195,6 +196,22 @@ class ProdukController extends Controller
 
         // Redirect back to the product listing page with a success message
         return redirect()->route('admin.dashboard.produk')->with('success', 'Product deleted successfully.');
+    }
+
+
+    public function getData(Request $request)
+    {
+        if ($request->ajax()) {
+            $produks = Produk::select(['id', 'nama_produk', 'kategori', 'harga', 'stok']);
+
+            return DataTables::of($produks)
+                ->addColumn('actions', function ($produk) {
+                    return view('produk.actions', compact('produk'));
+                })
+                ->rawColumns(['actions'])
+                ->toJson();
+        }
+        return view('admin.dashboard.produk');
     }
     // public function getDecryptedGambarAttribute()
     // {

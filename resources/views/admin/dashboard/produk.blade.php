@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    
     @vite('resources/css/admin.css')
     @vite('resources/sass/app.scss')
 </head>
@@ -23,7 +26,8 @@
                         class="fas fa-paperclip me-2"></i>Reports</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-shopping-cart me-2"></i>Orderan</a>
-                <a href="{{ route('produk.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="{{ route('produk.index') }}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-gift me-2"></i>Products</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-comment-dots me-2"></i>List Order</a>
@@ -68,13 +72,14 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="col-xs-6">
-                                        <a href="{{ route('produk.create') }}" class="btn btn-success" data-toggle="modal"><i
-                                                class="material-icons">&#xE147;</i> <span>Add New Menu</span></a>
+                                        <a href="{{ route('produk.create') }}" class="btn btn-success"
+                                            data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New
+                                                Menu</span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered">
+                        <table class="table table-striped table-hover table-bordered" id="produk-table">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -96,18 +101,26 @@
                                         <td>{{ $produks->stok }}</td>
                                         {{-- <td><img src="{{ asset('storage/app/public/files/' . $produks->gambar) }}" alt="{{ $produks->nama_produk }}" style="max-width: 100px;"></td> --}}
                                         <td>
-                                            <img src="{{ Storage::url('public/files/') }}"class="card-img-top" alt="{{ $produks->nama_produk }}">
+                                            <img src="{{ Storage::url('public/files/') }}"class="card-img-top"
+                                                alt="{{ $produks->nama_produk }}">
                                         </td>
 
                                         <td>
-                                            <a href="{{ route('produk.show', $produks->id) }}" class="btn btn-outline-dark btn-sm me2 bi-person-lines-fill" title="View" data-toggle="tooltip"></a>
-                                            <a href="{{ route('produk.edit', $produks->id) }}" class="btn btn-outline-dark btn-sm me2 bi-pencil-square " title="Edit" data-toggle="tooltip"></a>
+                                            <a href="{{ route('produk.show', $produks->id) }}"
+                                                class="btn btn-outline-dark btn-sm me2 bi-person-lines-fill"
+                                                title="View" data-toggle="tooltip"></a>
+                                            <a href="{{ route('produk.edit', $produks->id) }}"
+                                                class="btn btn-outline-dark btn-sm me2 bi-pencil-square "
+                                                title="Edit" data-toggle="tooltip"></a>
                                             {{-- <a href="{{route('produk.destroy', $produks->id)}}" class="btn btn-outline-dark bi-trash" title="Delete" data-toggle="tooltip"></a> --}}
                                             <div>
-                                                <form action="{{ route('produk.destroy', ['produk' => $produks->id]) }}" method="POST">
+                                                <form
+                                                    action="{{ route('produk.destroy', ['produk' => $produks->id]) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
+                                                    <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i
+                                                            class="bi-trash"></i></button>
                                                 </form>
                                             </div>
 
@@ -117,6 +130,12 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        </body>
-</html>
+</body>
+<script>
+    $(document).ready(function() {
+        $('#produk-table').DataTable();
+    });
+</script>
 
+
+</html>
